@@ -50,3 +50,16 @@ export const updateTransaction = (req: Request, res: Response): void => {
 
   res.json(tx);
 };
+
+export const deleteTransaction = (req: Request, res: Response): void => {
+  const { id } = req.params;
+  const tx = transactions.find(tx => tx.id === id && !tx.deleted);
+
+  if (!tx) {
+    res.status(404).json({ error: 'Transaction not found' });
+    return;
+  }
+
+  tx.deleted = true;
+  res.status(204).send(); // No content
+};
