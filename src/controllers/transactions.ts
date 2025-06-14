@@ -31,3 +31,22 @@ export const getTransactions = (_req: Request, res: Response): void => {
   const activeTxs = transactions.filter(tx => !tx.deleted);
   res.json(activeTxs);
 };
+
+export const updateTransaction = (req: Request, res: Response): void => {
+  const { id } = req.params;
+  const tx = transactions.find(tx => tx.id === id && !tx.deleted);
+
+  if (!tx) {
+    res.status(404).json({ error: 'Transaction not found' });
+    return;
+  }
+
+  const { payee, amount, category, date } = req.body;
+
+  if (payee !== undefined) tx.payee = payee;
+  if (amount !== undefined) tx.amount = amount;
+  if (category !== undefined) tx.category = category;
+  if (date !== undefined) tx.date = date;
+
+  res.json(tx);
+};
