@@ -3,8 +3,9 @@ their financial transactions in a secure, reliable, and scalable way.
 
 
 ### Getting Started
-1. clone the reppo
-git clone git@github.com:arogya247/attain-task-backend.git
+### 1. Clone the repository
+```bash
+git clone https://github.com/arogya247/attain-task-backend.git
 cd attain-task-backend
 
 2. Install dependencies
