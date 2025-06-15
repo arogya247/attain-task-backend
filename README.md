@@ -15,3 +15,7 @@ npm run dev
 
 ##will run at http://localhost:3000
 
+Also this backend is connected to a react frontend for testing.
+Though the data is stored in memory, so server restarting will reset the state.
+Please go to the other repo to setup react and get UI up and runnning!
+
